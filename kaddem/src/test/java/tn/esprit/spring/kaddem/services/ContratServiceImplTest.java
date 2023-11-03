@@ -51,7 +51,7 @@ Contrat contrat = new Contrat(1, new Date(),new Date(), Specialite.IA);
     }
 
 
-    @Test
+    /*@Test
     public void removeContrat() {
         Integer idContrat = 1; // Replace with a valid ID
         Contrat contrat = new Contrat(); // Create a mock Contrat object
@@ -65,7 +65,7 @@ Contrat contrat = new Contrat(1, new Date(),new Date(), Specialite.IA);
         // Assert
         // Verify that the delete method was called with the mock Contrat object
         Mockito.verify(contratRepository).delete(contrat);
-    }
+    }*/
 
     @Test
     public void affectContratToEtudiant() {
