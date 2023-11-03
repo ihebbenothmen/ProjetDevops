@@ -28,6 +28,14 @@ public class Contrat implements Serializable{
         // TODO Auto-generated constructor stub
     }
 
+
+    public Contrat(Integer idContrat, Date dateDebutContrat, Date dateFinContrat, Specialite specialite) {
+        this.idContrat = idContrat;
+        this.dateDebutContrat = dateDebutContrat;
+        this.dateFinContrat = dateFinContrat;
+        this.specialite = specialite;
+    }
+
     public Contrat(Date dateDebutContrat, Date dateFinContrat, Specialite specialite, Boolean archive,
                    Integer montantContrat) {
         super();
