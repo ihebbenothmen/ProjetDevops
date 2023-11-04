@@ -66,7 +66,7 @@ Contrat contrat = new Contrat(1, new Date(),new Date(), Specialite.IA);
         // Verify that the delete method was called with the mock Contrat object
         Mockito.verify(contratRepository).delete(contrat);
     }*/
-
+/////
     @Test
     public void affectContratToEtudiant() {
     }
