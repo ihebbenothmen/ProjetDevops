@@ -2,6 +2,7 @@ package tn.esprit.spring.kaddem.controllers;
 
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.spring.kaddem.entities.Etudiant;
+import tn.esprit.spring.kaddem.entities.dto.EtudiantDTO;
 import tn.esprit.spring.kaddem.services.IEtudiantService;
 
 import java.util.List;
@@ -29,9 +30,15 @@ public class EtudiantRestController {
 
 	// http://localhost:8089/Kaddem/etudiant/add-etudiant
 	@PostMapping("/add-etudiant")
-	public Etudiant addEtudiant(@RequestBody Etudiant e) {
+	public Etudiant addEtudiant(@RequestBody EtudiantDTO etudiantDTO) {
+		Etudiant e = new Etudiant();
+		// Map the fields from etudiantDTO to e
+		e.setNomE(etudiantDTO.getName());
+		// Set other fields as needed
+
 		return etudiantService.addEtudiant(e);
 	}
+
 
 	// http://localhost:8089/Kaddem/etudiant/remove-etudiant/1
 	@DeleteMapping("/remove-etudiant/{etudiant-id}")
@@ -41,9 +48,15 @@ public class EtudiantRestController {
 
 	// http://localhost:8089/Kaddem/etudiant/update-etudiant
 	@PutMapping("/update-etudiant")
-	public Etudiant updateEtudiant(@RequestBody Etudiant e) {
+	public Etudiant updateEtudiant(@RequestBody EtudiantDTO etudiantDTO) {
+		Etudiant e = new Etudiant();
+		// Map the fields from etudiantDTO to e
+		e.setNomE(etudiantDTO.getName());
+		// Set other fields as needed
+
 		return etudiantService.updateEtudiant(e);
 	}
+
 
 	//@PutMapping("/affecter-etudiant-departement")
 	@PutMapping(value="/affecter-etudiant-departement/{etudiantId}/{departementId}")
@@ -52,12 +65,17 @@ public class EtudiantRestController {
     }
 //addAndAssignEtudiantToEquipeAndContract(Etudiant e, Integer idContrat, Integer idEquipe)
     /* Ajouter un étudiant tout en lui affectant un contrat et une équipe */
-    @PostMapping("/add-assign-Etudiant/{idContrat}/{idEquipe}")
-    @ResponseBody
-    public Etudiant addEtudiantWithEquipeAndContract(@RequestBody Etudiant e, @PathVariable("idContrat") Integer idContrat, @PathVariable("idEquipe") Integer idEquipe) {
-		return etudiantService.addAndAssignEtudiantToEquipeAndContract(e,idContrat,idEquipe);
+@PostMapping("/add-assign-Etudiant/{idContrat}/{idEquipe}")
+@ResponseBody
+public Etudiant addEtudiantWithEquipeAndContract(@RequestBody EtudiantDTO etudiantDTO, @PathVariable("idContrat") Integer idContrat, @PathVariable("idEquipe") Integer idEquipe) {
+	Etudiant e = new Etudiant();
+	// Map the fields from etudiantDTO to e
+	e.setNomE(etudiantDTO.getName());
+	// Set other fields as needed
 
-    }
+	return etudiantService.addAndAssignEtudiantToEquipeAndContract(e, idContrat, idEquipe);
+}
+
 
 	@GetMapping(value = "/getEtudiantsByDepartement/{idDepartement}")
 	public List<Etudiant> getEtudiantsParDepartement(@PathVariable("idDepartement") Integer idDepartement) {
