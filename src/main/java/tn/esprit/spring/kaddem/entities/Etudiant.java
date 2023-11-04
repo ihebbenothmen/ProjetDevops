@@ -26,13 +26,10 @@ public class Etudiant implements Serializable{
     @ManyToOne
     @JsonIgnore
     private Departement departement;
-  //  @ManyToMany(cascade =CascadeType.ALL)
     @ManyToMany(mappedBy="etudiants")
-
     @JsonIgnore
     private List<Equipe> equipes ;
-    public Etudiant() {
-    }
+    public Etudiant() {}
 
     public Etudiant(String nomE, String prenomE) {
         this.nomE = nomE;

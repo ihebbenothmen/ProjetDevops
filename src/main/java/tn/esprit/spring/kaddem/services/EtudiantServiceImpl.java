@@ -62,9 +62,16 @@ public class EtudiantServiceImpl implements IEtudiantService{
 	}
 
 
-	public void removeEtudiant(Integer idEtudiant){
-	Etudiant e=retrieveEtudiant(idEtudiant);
-	etudiantRepository.delete(e);
+
+
+	public boolean removeEtudiant(Integer idEtudiant){
+		Etudiant e = retrieveEtudiant(idEtudiant);
+		if (e != null) {
+			etudiantRepository.delete(e);
+			return true; // Deletion successful
+		} else {
+			return false; // Deletion failed
+		}
 	}
 
 	public void assignEtudiantToDepartement(Integer etudiantId, Integer departementId) {
