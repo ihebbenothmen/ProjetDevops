@@ -15,27 +15,6 @@ import java.util.List;
 
 @Service
 public class DepartementServiceImpl implements IDepartementService{
-	@Autowired
-	DepartementRepository departementRepository;
-	public List<Departement> retrieveAllDepartements(){
-		return (List<Departement>) departementRepository.findAll();
-	}
-
-	public Departement addDepartement (Departement d){
-		return departementRepository.save(d);
-	}
-
-	public   Departement updateDepartement (Departement d){
-		return departementRepository.save(d);
-	}
-
-	public  Departement retrieveDepartement (Integer idDepart){
-		return departementRepository.findById(idDepart).get();
-	}
-	public  void deleteDepartement(Integer idDepartement){
-		Departement d=retrieveDepartement(idDepartement);
-		departementRepository.delete(d);
-	}
 
 
 

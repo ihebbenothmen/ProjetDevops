@@ -25,7 +25,6 @@ public class Contrat implements Serializable{
     private Etudiant etudiant;
 
     public Contrat() {
-        // TODO Auto-generated constructor stub
     }
 
 
