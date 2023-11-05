@@ -1,0 +1,18 @@
+version: "2"
+services:
+  spring:
+    depends_on: [mysql]
+    image: amine/kaddem:1-0
+    restart: unless-stopped
+    ports:
+      - "8089:8089"
+  mysql:
+    image: mysql:latest
+    restart: unless-stopped
+    container_name: mysql-db
+    environment:
+      MYSQL_DATABASE: kaddemdb
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
+    ports:
+      - "3307:3306"
