@@ -1,18 +1,33 @@
-version: "2"
+version: "3.7"
 services:
-  spring:
-    depends_on: [mysql]
-    image: damine99/kaddem:2.0
-    restart: unless-stopped
+  springapp:
+    container_name: springbootapp
+    build: 'C:\Users\Amine\Documents\GitHub\ProjetDevops'
     ports:
       - "8089:8089"
-  mysql:
-    image: mysql:latest
-    restart: unless-stopped
-    container_name: mysql-db
     environment:
-      MYSQL_DATABASE: kaddemdb
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_PASSWORD: root
+      - SPRING_DATASOURCE_URL=jdbc:mysql://db-mysql:3306/kadem?createDatabaseIfNotExist=true&userSSL=false
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+    restart: unless-stopped
+
+    image: "damine99/kaddem:3.0"
+    depends_on:
+      - db-mysql
+
+  db-mysql:
+    image: "mysql:5.6"
+    container_name: dbmysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      #- MYSQL_DATABASE=job
     ports:
-      - "3307:3306"
+      - "3306:3306"
+    restart: unless-stopped
+    volumes:
+      - db:/var/lib/mysql
+networks:
+  springapimysql-net:
+
+volumes:
+  db:
