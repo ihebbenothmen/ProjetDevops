@@ -23,7 +23,6 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(SpringExtension.class)
 public class EtudiantServiceUnitTest {
-
     @Mock
     EtudiantRepository etudiantRepository;
 
