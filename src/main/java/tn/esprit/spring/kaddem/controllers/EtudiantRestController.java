@@ -2,6 +2,7 @@ package tn.esprit.spring.kaddem.controllers;
 
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.spring.kaddem.entities.Etudiant;
+import tn.esprit.spring.kaddem.entities.Option;
 import tn.esprit.spring.kaddem.entities.dto.EtudiantDTO;
 import tn.esprit.spring.kaddem.services.IEtudiantService;
 
@@ -30,9 +31,14 @@ public class EtudiantRestController {
 
 	// http://localhost:8089/Kaddem/etudiant/add-etudiant
 	@PostMapping("/add-etudiant")
-	public Etudiant addEtudiant(@RequestBody Etudiant etudiant) {
-
-		return etudiantService.addEtudiant(etudiant);
+	public Etudiant addEtudiant(@RequestBody EtudiantDTO etudiantDTO) {
+		Etudiant e = new Etudiant();
+		// Map the fields from etudiantDTO to e
+		e.setIdEtudiant(etudiantDTO.getId());
+		e.setNomE(etudiantDTO.getName());
+		e.setPrenomE(etudiantDTO.getPrenom());
+		e.setOp(Option.SE);
+		return etudiantService.addEtudiant(e);
 	}
 
 
