@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  springapp:
+    container_name: springbootapp
+    build: 'C:\Users\IHEB\Desktop\kaddem\ProjetDevops'
+  mysqldb:
+    image: mysql:5.7
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_DATABASE=kaddem\db
+    ports:
+      - 3306:3306
+    volumes:
+      - db:/var/lib/mysql
+  app-kaddem:
+    depends_on:
+      - mysqldb
+    image: "ihebbenothmen/projetdevops:1.0"
+    restart: on-failure
+    ports:
+      - 9001:9001
+    environment:
+      SPRING_APPLICATION_JSON: '{
+        "spring.datasource.url"  : "jdbc:mysql://mysqldb:3306/kaddem\db?&createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+        "spring.datasource.username" : "root",
+        "spring.datasource.password" : null,
+        "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5Dialect",
+        "spring.jpa.hibernate.ddl-auto" : "update"
+      }'
+    stdin_open: true
+    tty: true
+
+volumes:
+  db :
