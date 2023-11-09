@@ -1,9 +1,9 @@
 version: "3"
 
 services:
-  springapp:
-    container_name: springbootapp
-    build: 'C:\Users\IHEB\Desktop\kaddem\ProjetDevops'
+  #springapp:
+    #container_name: springbootapp
+    #build: 'C:\Users\IHEB\Desktop\kaddem\ProjetDevops'
   mysqldb:
     image: mysql:5.7
     restart: unless-stopped
@@ -17,7 +17,7 @@ services:
   app-kaddem:
     depends_on:
       - mysqldb
-    image: "ihebbenothmen/projetdevops:1.0"
+    image: "ihebbenothmen/projet-devops:latest"
     restart: on-failure
     ports:
       - 9001:9001
