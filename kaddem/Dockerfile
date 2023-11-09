@@ -3,6 +3,6 @@ FROM adoptopenjdk:11-jre-hotspot
 
 #fdffn g
 
-COPY target/kaddem-0.0.1-SNAPSHOT.jar kaddem-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java", "-jar", "kaddem-0.0.1-SNAPSHOT.jar"]
+COPY target/kaddem-0.0.1-SNAPSHOT.jar.original kaddem-0.0.1-SNAPSHOT.jar.original
+ENTRYPOINT ["java", "-jar", "kaddem-0.0.1-SNAPSHOT.jar.original"]
 EXPOSE 9001
