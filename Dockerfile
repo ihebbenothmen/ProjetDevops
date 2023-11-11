@@ -1,6 +1,4 @@
 FROM adoptopenjdk:11-jre-hotspot
-
-COPY target/*.jar app.jar
-ENTRYPOINT ["java", "-jar", "/app.jar"]
-EXPOSE 9001
-
+EXPOSE 8089
+ADD target/kaddem-1.0.jar kaddem-1.0.jar
+ENTRYPOINT [ "java", "-jar", "kaddem-1.0.jar"]
