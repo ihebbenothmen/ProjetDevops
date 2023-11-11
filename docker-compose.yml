@@ -16,7 +16,7 @@ services:
   app:
     depends_on:
       - db-mysql
-    image: "boutheinalagrem/kaddem:0.0.1-SNAPSHOT"
+    image: "boutheinalagrem/kaddem:1.0"
     container_name: springbootapp
     build: 'D:\ProjetDevops\ProjetDevops\kaddem'
     restart: unless-stopped
