@@ -34,10 +34,10 @@ public class EtudiantRestController {
 	public Etudiant addEtudiant(@RequestBody EtudiantDTO etudiantDTO) {
 		Etudiant e = new Etudiant();
 		// Map the fields from etudiantDTO to e
-		e.setIdEtudiant(etudiantDTO.getId());
-		e.setNomE(etudiantDTO.getName());
-		e.setPrenomE(etudiantDTO.getPrenom());
-		e.setOp(Option.SE);
+		e.setIdEtudiant(etudiantDTO.getIdEtudiant());
+		e.setNomE(etudiantDTO.getNomE());
+		e.setPrenomE(etudiantDTO.getPrenomE());
+		e.setOp(etudiantDTO.getOp());
 		return etudiantService.addEtudiant(e);
 	}
 
@@ -53,7 +53,7 @@ public class EtudiantRestController {
 	public Etudiant updateEtudiant(@RequestBody EtudiantDTO etudiantDTO) {
 		Etudiant e = new Etudiant();
 		// Map the fields from etudiantDTO to e
-		e.setNomE(etudiantDTO.getName());
+		e.setNomE(etudiantDTO.getNomE());
 		// Set other fields as needed
 
 		return etudiantService.updateEtudiant(e);
@@ -72,7 +72,7 @@ public class EtudiantRestController {
 public Etudiant addEtudiantWithEquipeAndContract(@RequestBody EtudiantDTO etudiantDTO, @PathVariable("idContrat") Integer idContrat, @PathVariable("idEquipe") Integer idEquipe) {
 	Etudiant e = new Etudiant();
 	// Map the fields from etudiantDTO to e
-	e.setNomE(etudiantDTO.getName());
+	e.setNomE(etudiantDTO.getNomE());
 	// Set other fields as needed
 
 	return etudiantService.addAndAssignEtudiantToEquipeAndContract(e, idContrat, idEquipe);
