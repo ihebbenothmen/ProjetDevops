@@ -1,5 +1,6 @@
 package tn.esprit.spring.kaddem.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.spring.kaddem.entities.Etudiant;
 import tn.esprit.spring.kaddem.entities.dto.EtudiantDTO;
@@ -12,12 +13,8 @@ import java.util.List;
 @CrossOrigin("**")
 public class EtudiantRestController {
 
-	private final IEtudiantService etudiantService;
-
-	public EtudiantRestController(IEtudiantService etudiantService) {
-		this.etudiantService = etudiantService;
-
-	}
+	@Autowired
+	IEtudiantService etudiantService;
 
 	@GetMapping("/retrieve-all-etudiants")
 	public List<Etudiant> getEtudiants() {
