@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(SpringExtension.class)
-public class EtudiantServiceUnitTest {
+ class EtudiantServiceUnitTest {
     @Mock
     EtudiantRepository etudiantRepository;
 
@@ -35,7 +35,7 @@ public class EtudiantServiceUnitTest {
     }
 
     @Test
-    public void testGetEtudiantsList() {
+     void testGetEtudiantsList() {
         Etudiant etudiant1 = new Etudiant(15, "Aouididi", "ahmed", Option.SE);
         Etudiant etudiant2 = new Etudiant(16, "chetti", "amal", Option.GAMIX);
         when(etudiantRepository.findAll()).thenReturn(Arrays.asList(etudiant1, etudiant2));
@@ -48,7 +48,7 @@ public class EtudiantServiceUnitTest {
     }
 
     @Test
-    public void testGetEtudiantById() {
+     void testGetEtudiantById() {
         Etudiant etudiant = new Etudiant(19, "didi", "damine", Option.SE);
         when(etudiantRepository.findById(19)).thenReturn(Optional.of(etudiant));
         Etudiant etudiantById = etudiantService.retrieveEtudiant(19);
@@ -60,7 +60,7 @@ public class EtudiantServiceUnitTest {
 
 
     @Test
-    public void testGetInvalidEtudiantById() {
+     void testGetInvalidEtudiantById() {
         when(etudiantRepository.findById(19)).thenThrow(new OrderNotFoundException("Etudiant Not Found with ID"));
         Exception exception = assertThrows(OrderNotFoundException.class, () -> {
             etudiantService.retrieveEtudiant(19);
@@ -69,7 +69,7 @@ public class EtudiantServiceUnitTest {
     }
 
     @Test
-    public void testCreateEtudiant() {
+     void testCreateEtudiant() {
         Etudiant etudiant = new Etudiant(20, "Aouididi", "Mohamed", Option.GAMIX);
         etudiantService.addEtudiant(etudiant);
         verify(etudiantRepository, times(1)).save(etudiant);

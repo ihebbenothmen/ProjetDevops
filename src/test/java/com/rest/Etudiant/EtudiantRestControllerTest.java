@@ -14,7 +14,7 @@ import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class EtudiantRestControllerTest {
+ class EtudiantRestControllerTest {
 
     @Mock
     private IEtudiantService etudiantService;
@@ -27,7 +27,7 @@ public class EtudiantRestControllerTest {
     }
 
     @Test
-    public void testRetrieveAllEtudiants() {
+     void testRetrieveAllEtudiants() {
         // Mocking the service method
         List<Etudiant> mockEtudiants = new ArrayList<>();
         when(etudiantService.retrieveAllEtudiants()).thenReturn(mockEtudiants);
@@ -38,7 +38,7 @@ public class EtudiantRestControllerTest {
     }
 
     @Test
-    public void testRetrieveEtudiant() {
+     void testRetrieveEtudiant() {
         // Mocking the service method
         Integer etudiantId = 1;
         Etudiant mockEtudiant = new Etudiant("John", "Doe", Option.SE);
@@ -50,7 +50,7 @@ public class EtudiantRestControllerTest {
     }
 
     @Test
-    public void testAddEtudiant() {
+     void testAddEtudiant() {
         // Mocking the service method
         EtudiantDTO etudiantDTO = new EtudiantDTO();
         etudiantDTO.setNomE("Alice");
