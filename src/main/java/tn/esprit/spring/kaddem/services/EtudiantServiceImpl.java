@@ -40,7 +40,7 @@ public class EtudiantServiceImpl implements IEtudiantService{
 	return (List<Etudiant>) etudiantRepository.findAll();
 	}
 
-	public Etudiant addEtudiant (Etudiant e){
+	public Etudiant addEtudiant(Etudiant e){
 		return etudiantRepository.save(e);
 	}
 
