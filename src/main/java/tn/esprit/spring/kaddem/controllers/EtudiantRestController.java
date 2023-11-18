@@ -31,12 +31,8 @@ public class EtudiantRestController {
 
 	// http://localhost:8089/Kaddem/etudiant/add-etudiant
 	@PostMapping("/add-etudiant")
-	public Etudiant addEtudiant(@RequestBody EtudiantDTO etudiantDTO) {
-		Etudiant e = new Etudiant();
-		// Map the fields from etudiantDTO to e
-		e.setNomE(etudiantDTO.getNomE());
-		e.setPrenomE(etudiantDTO.getPrenomE());
-		e.setOp(etudiantDTO.getOp());
+	public Etudiant addEtudiant(@RequestBody Etudiant e) {
+
 		return etudiantService.addEtudiant(e);
 	}
 

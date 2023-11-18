@@ -50,26 +50,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
     }
 
     @Test
-     void testAddEtudiant() {
-        // Mocking the service method
-        EtudiantDTO etudiantDTO = new EtudiantDTO();
-        etudiantDTO.setNomE("Alice");
-        etudiantDTO.setPrenomE("Smith");
-        etudiantDTO.setOp(Option.SE);
+    public void testAddEtudiant() {
+       // Mocking the service method
+       Etudiant mockEtudiant = new Etudiant();
+       when(etudiantService.addEtudiant(any(Etudiant.class))).thenReturn(mockEtudiant);
 
-        Etudiant mockEtudiant = new Etudiant();
-        mockEtudiant.setNomE("Alice");
-        mockEtudiant.setPrenomE("Smith");
-        mockEtudiant.setOp(Option.SE);
+       Etudiant result = etudiantController.addEtudiant(new Etudiant());
 
-        when(etudiantService.addEtudiant(any(Etudiant.class))).thenReturn(mockEtudiant);
-
-        Etudiant result = etudiantController.addEtudiant(etudiantDTO);
-
-        assertEquals(mockEtudiant, result);
+       assertEquals(mockEtudiant, result);
     }
-
-    // Add tests for other controller methods...
-
 }
 
