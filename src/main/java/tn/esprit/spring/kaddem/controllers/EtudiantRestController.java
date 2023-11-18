@@ -34,7 +34,6 @@ public class EtudiantRestController {
 	public Etudiant addEtudiant(@RequestBody EtudiantDTO etudiantDTO) {
 		Etudiant e = new Etudiant();
 		// Map the fields from etudiantDTO to e
-		e.setIdEtudiant(etudiantDTO.getIdEtudiant());
 		e.setNomE(etudiantDTO.getNomE());
 		e.setPrenomE(etudiantDTO.getPrenomE());
 		e.setOp(etudiantDTO.getOp());
@@ -54,8 +53,8 @@ public class EtudiantRestController {
 		Etudiant e = new Etudiant();
 		// Map the fields from etudiantDTO to e
 		e.setNomE(etudiantDTO.getNomE());
-		// Set other fields as needed
-
+		e.setPrenomE(etudiantDTO.getPrenomE());
+		e.setOp(etudiantDTO.getOp());
 		return etudiantService.updateEtudiant(e);
 	}
 
