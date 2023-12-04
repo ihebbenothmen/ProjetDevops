@@ -2,6 +2,7 @@
 
 
     import com.fasterxml.jackson.annotation.JsonIgnore;
+    import com.fasterxml.jackson.annotation.JsonProperty;
 
     import java.io.Serializable;
     import java.util.List;
@@ -16,8 +17,11 @@
         @Id
         @GeneratedValue(strategy= GenerationType.IDENTITY)
         private Integer idEtudiant;
+        @JsonProperty("nomE")
         private String nomE;
+        @JsonProperty("prenomE")
         private String prenomE;
+        @JsonProperty("op")
         @Enumerated(EnumType.STRING)
         private Option op;
         @OneToMany(mappedBy="etudiant", cascade = CascadeType.ALL)
