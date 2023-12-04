@@ -55,7 +55,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
        Etudiant mockEtudiant = new Etudiant();
        when(etudiantService.addEtudiant(any(Etudiant.class))).thenReturn(mockEtudiant);
 
-       Etudiant result = etudiantController.addEtudiant(new Etudiant());
+       Etudiant result = etudiantController.addEtudiant(new EtudiantDTO());
 
        assertEquals(mockEtudiant, result);
     }

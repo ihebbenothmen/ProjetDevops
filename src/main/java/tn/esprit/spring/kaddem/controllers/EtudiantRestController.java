@@ -27,10 +27,16 @@ public class EtudiantRestController {
 
 	// http://localhost:8089/Kaddem/etudiant/add-etudiant
 	@PostMapping("/add-etudiant")
-	public Etudiant addEtudiant(@RequestBody Etudiant e) {
+	public Etudiant addEtudiant(@RequestBody EtudiantDTO etudiantDTO) {
+		Etudiant e = new Etudiant();
+		e.setNomE(etudiantDTO.getNomE());
+		e.setPrenomE(etudiantDTO.getPrenomE());
+		e.setOp(etudiantDTO.getOp());
+		// Vous pouvez mapper d'autres champs si nécessaire
 
 		return etudiantService.addEtudiant(e);
 	}
+
 
 
 	// http://localhost:8089/Kaddem/etudiant/remove-etudiant/1
